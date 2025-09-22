@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+    .timer {
+      font-size: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="timer" id="countdown"></div>
+
+  <script>
+    // Sätt måldatum och tid (år, månad-1, dag, timme, minut, sekund)
+    const targetDate = new Date(2025, 11, 31, 23, 59, 59).getTime();
+
+    const countdown = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        countdown.textContent = "Nedräkningen är klar!";
+        clearInterval(interval);
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    // Uppdatera varje sekund
+    const interval = setInterval(updateCountdown, 1000);
+    updateCountdown(); // kör direkt första gången
+  </script>
+</body>
+</html>
