@@ -4,50 +4,55 @@
   <meta charset="UTF-8">
   <title>Countdown</title>
   <style>
+    @font-face {
+        font-family: "COCOGOOSE";   
+        src: url("cocogoose/Cocogoose-Pro-Darkmode-trial.ttf");
+    }
     body {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: #fff;
+      font-family: "COCOGOOSE", sans-serif;
+      background: url(are_kabibanan.jpg) no-repeat center center fixed;
+      color: #505c75;
     }
     .timer {
-      font-size: 3rem;
+      font-size: 4rem;
     }
   </style>
 </head>
 <body>
-  <div class="timer" id="countdown"></div>
+    <h1>Biljetterna släpps om</h1>
+    <div class="timer" id="countdown"></div>
 
-  <script>
-    // Sätt måldatum och tid (år, månad-1, dag, timme, minut, sekund)
-    const targetDate = new Date(2025, 9, 3, 21, 0, 0).getTime();
+    <script>
+        // Sätt måldatum och tid (år, månad-1, dag, timme, minut, sekund)
+        const targetDate = new Date(2025, 9, 3, 21, 0, 0).getTime();
 
-    const countdown = document.getElementById("countdown");
+        const countdown = document.getElementById("countdown");
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
+        function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
 
-      if (distance <= 0) {
-        countdown.textContent = "Nedräkningen är klar!";
-        clearInterval(interval);
-        return;
-      }
+        if (distance <= 0) {
+            countdown.textContent = "Nedräkningen är klar!";
+            clearInterval(interval);
+            return;
+        }
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      countdown.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
+        countdown.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
 
-    // Uppdatera varje sekund
-    const interval = setInterval(updateCountdown, 1000);
-    updateCountdown(); // kör direkt första gången
-  </script>
+        // Uppdatera varje sekund
+        const interval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // kör direkt första gången
+    </script>
 </body>
 </html>
