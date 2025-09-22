@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Montserrat", sans-serif;
+    background: url(are_kabibanan.jpg) no-repeat center center fixed;
+    background-size: cover;
+    color: #505c75;
+    text-align: center;
+  }
+  .frosted-container {
+    background: rgba(255, 255, 255, 0.1); /* transparent vit bakgrund */
+    backdrop-filter: blur(10px);          /* frostad effekt */
+    -webkit-backdrop-filter: blur(10px);  /* safari-stöd */
+    border-radius: 20px;
+    padding: 2rem 3rem;
+    /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); */
+  }
+
+  h1 {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+  }
+  .timer {
+    font-size: 8rem;
+    font-weight: 700; /* Gör siffrorna lite mer markerade */
+  }
