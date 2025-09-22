@@ -22,10 +22,10 @@ body {
 
   h1 {
     font-size: 6.5rem;
-    margin: 2rem 2rem 1rem 2rem;
+    margin: 1rem;
   }
   .timer {
     font-size: 9.5rem;
-    margin: 2rem 1rem 2rem 2rem;
+    margin: 1rem;
     font-weight: 700; /* Gör siffrorna lite mer markerade */
   }
