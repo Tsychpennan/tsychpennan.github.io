@@ -15,7 +15,7 @@ body {
     backdrop-filter: blur(10px);          /* frostad effekt */
     -webkit-backdrop-filter: blur(10px);  /* safari-stöd */
     border-radius: 20px;
-    width: 1200px;
+    width: 1300px;
     padding: 2rem;
     /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); */
   }
