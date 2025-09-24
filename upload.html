@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Countdown</title>
+
+    <!-- Importera Montserrat från Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <style> 
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: "Montserrat", sans-serif;
+            background: url("https://tsychpennan.github.io") no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            text-align: center;
+        }
+        .frosted-container {
+            background: rgba(255, 255, 255, 0.1); /* transparent vit bakgrund */
+            backdrop-filter: blur(10px);          /* frostad effekt */
+            -webkit-backdrop-filter: blur(10px);  /* safari-stöd */
+            border-radius: 20px;
+            width: 1350px;
+            padding: 2rem;
+            /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); */
+        }
+
+        h1 {
+            font-size: 5.5rem;
+            margin: 0.8rem;
+        }
+        .timer {
+            font-size: 9.4em;
+            margin: 0.8rem;
+            font-weight: 700; /* Gör siffrorna lite mer markerade */
+        }
+    </style>
+</head>
+<body>
+    <div class="frosted-container">
+        <h1>BILJETTERNA SLÄPPS OM:</h1>
+        <div class="timer" id="countdown"></div>
+    </div>
+
+    <script>
+        // Sätt måldatum och tid (år, månad-1, dag, timme, minut, sekund)
+        const targetDate = new Date(2025, 9, 3, 21, 0, 0).getTime();
+
+        const countdown = document.getElementById("countdown");
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance <= 0) {
+                countdown.textContent = "Nedräkningen är klar!";
+                clearInterval(interval);
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdown.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        // Uppdatera varje sekund
+        const interval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // kör direkt första gången
+    </script>
+</body>
+</html>

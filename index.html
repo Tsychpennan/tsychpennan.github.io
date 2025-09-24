@@ -4,45 +4,24 @@
     <meta charset="UTF-8">
     <title>Countdown</title>
 
-    <!-- Importera Montserrat från Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style/normalize.css"> 
-    <link rel="stylesheet" href="style/style.css">
+   
+    <style> 
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: "Montserrat", sans-serif;
+            background: url("10.jpg") no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            text-align: center;
+        }
+       
+    </style>
 </head>
 <body>
-    <div class="frosted-container">
-        <h1>BILJETTERNA SLÄPPS OM:</h1>
-        <div class="timer" id="countdown"></div>
-    </div>
-
-    <script>
-        // Sätt måldatum och tid (år, månad-1, dag, timme, minut, sekund)
-        const targetDate = new Date(2025, 9, 3, 21, 0, 0).getTime();
-
-        const countdown = document.getElementById("countdown");
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            if (distance <= 0) {
-                countdown.textContent = "Nedräkningen är klar!";
-                clearInterval(interval);
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            countdown.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-        }
-
-        // Uppdatera varje sekund
-        const interval = setInterval(updateCountdown, 1000);
-        updateCountdown(); // kör direkt första gången
-    </script>
+    
 </body>
 </html>
