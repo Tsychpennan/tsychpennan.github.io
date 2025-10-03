@@ -44,8 +44,9 @@
 <body>
     <div class="frosted-container">
         <h1>BILJETTERNA SLÄPPS OM:</h1>
+
         <div class="timer" id="countdown"></div>
-        <img src="qr-code.png" alt="QR-kod" style="margin-top: 2rem; width: 300px; height: auto; display: none;" id="qrImage">
+        <img src="qr-code.png" alt="QR-kod" id="qrImage" style="margin: 2rem auto 0 auto; display: none; width: 300px; height: auto; border-radius: 10px; display: block;">
     </div>
 
     <script>
@@ -61,6 +62,7 @@
             if (distance <= 0) {
                 countdown.textContent = "ANMÄL ER HÄR:";
                 document.getElementById("qrImage").style.display = "block";
+                document.querySelector(".frosted-container h1").style.display = "none";
                 clearInterval(interval);
                 return;
             }
