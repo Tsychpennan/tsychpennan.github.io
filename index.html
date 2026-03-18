@@ -22,11 +22,11 @@
         }
 
         h1 {
-            font-size: 5rem;
+            font-size: 4rem;
             margin: 0.8rem;
         }
         .timer {
-            font-size: 10em;
+            font-size: 9em;
             margin: 0.8rem;
             font-weight: 700; /* Gör siffrorna lite mer markerade */
         }
@@ -37,12 +37,12 @@
         <h1>BILJETTERNA SLÄPPS OM:</h1>
 
         <div class="timer" id="countdown"></div>
-        <img src="qr-code.png" alt="QR-kod" id="qrImage" style="margin: 2rem auto 0 auto; display: none; width: 500px; height: auto; border-radius: 20px; display: none;">
+        <img src="qr-code-var.png" alt="QR-kod" id="qrImage" style="margin: 2rem auto 0 auto; display: none; width: 500px; height: auto; border-radius: 20px; display: none;">
     </div>
 
     <script>
         // Sätt måldatum och tid (år, månad-1, dag, timme, minut, sekund)
-        const targetDate = new Date(2026, 2, 18, 20, 0, 0).getTime();
+        const targetDate = new Date(2026, 2, 18, 19, 0, 0).getTime();
 
         const countdown = document.getElementById("countdown");
 
@@ -51,7 +51,6 @@
             const distance = targetDate - now;
 
             if (distance <= 0) {
-                countdown.textContent = "ANMÄL ER HÄR:";
                 document.getElementById("qrImage").style.display = "block";
                 document.querySelector(".frosted-container h1").style.display = "none";
                 clearInterval(interval);
