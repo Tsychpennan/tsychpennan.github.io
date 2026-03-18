@@ -37,7 +37,7 @@
         <h1>BILJETTERNA SLÄPPS OM:</h1>
 
         <div class="timer" id="countdown"></div>
-        <img src="qr-code-var.png" alt="QR-kod" id="qrImage" style="margin: 2rem auto 0 auto; display: none; width: 500px; height: auto; border-radius: 20px; display: none;">
+        <img src="qr-code-var.png" alt="QR-kod" id="qrImage" style="margin: 2rem auto 0 auto; display: none; width: 700px; height: auto; border-radius: 20px; display: none;">
     </div>
 
     <script>
@@ -53,6 +53,7 @@
             if (distance <= 0) {
                 document.getElementById("qrImage").style.display = "block";
                 document.querySelector(".frosted-container h1").style.display = "none";
+                countdown.style.display = "none"; // Hide the countdown
                 clearInterval(interval);
                 return;
             }
