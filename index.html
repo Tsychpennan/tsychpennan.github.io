@@ -53,6 +53,7 @@
             if (distance <= 0) {
                 document.getElementById("qrImage").style.display = "block";
                 document.querySelector(".frosted-container h1").style.display = "none";
+                countdown.style.display = "none"; // Hide the countdown
                 clearInterval(interval);
                 return;
             }
